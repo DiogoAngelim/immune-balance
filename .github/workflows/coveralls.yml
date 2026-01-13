@@ -28,12 +28,10 @@ jobs:
         run: pnpm install
       - name: Print which node is used by Vitest
         run: which node && node -v
-      - name: Set NODE_OPTIONS
-        run: echo "NODE_OPTIONS=--experimental-modules" >> $GITHUB_ENV
       - name: Run tests and generate coverage (npx)
-        run: npx vitest run --coverage --no-inspect-brk
+        run: NODE_OPTIONS=--experimental-modules npx vitest run --coverage --no-inspect-brk
       - name: Run tests and generate coverage (npm exec fallback)
-        run: npm exec vitest run --coverage --no-inspect-brk
+        run: NODE_OPTIONS=--experimental-modules npm exec vitest run --coverage --no-inspect-brk
       - name: Upload coverage to Coveralls
         env:
           COVERALLS_REPO_TOKEN: ${{ secrets.COVERALLS_REPO_TOKEN }}

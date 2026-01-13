@@ -32,11 +32,11 @@ jobs:
         run: which node && node -v
       - name: Run tests and generate coverage
         run: NODE_OPTIONS=--experimental-modules pnpm vitest run backend/src/tests/*.ts --coverage
-      - name: List coverage files
-        run: ls -l ./coverage || echo 'No coverage directory found'
+      - name: Find all lcov.info files
+        run: find . -name lcov.info
       - name: Upload coverage to Coveralls
         env:
           COVERALLS_REPO_TOKEN: ${{ secrets.COVERALLS_REPO_TOKEN }}
         run: |
           pnpm add coveralls --save-dev
-          cat ./coverage/lcov.info | pnpm exec coveralls
+          cat ./backend/coverage/lcov.info | pnpm exec coveralls || cat ./coverage/lcov.info | pnpm exec coveralls

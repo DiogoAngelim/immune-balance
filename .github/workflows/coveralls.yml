@@ -20,21 +20,22 @@ jobs:
         run: node -v
       - name: Install pnpm
         run: npm install -g pnpm
-      - name: Remove node_modules and lockfile
-        run: rm -rf node_modules pnpm-lock.yaml
-      - name: Clear pnpm and npm cache
-        run: pnpm store prune && npm cache clean --force
       - name: Install dependencies
-        run: pnpm install
+        run: pnpm install --no-frozen-lockfile
       - name: Print which node is used by Vitest
         run: which node && node -v
       - name: Run tests and generate coverage
-        run: NODE_OPTIONS=--experimental-modules pnpm vitest run "**/*.{test,spec}.{ts,tsx}" --coverage
+        run: NODE_OPTIONS=--experimental-modules pnpm exec vitest run "**/*.{test,spec}.{ts,tsx}" --coverage
       - name: Find all lcov.info files
         run: find . -name lcov.info
       - name: Upload coverage to Coveralls
+        if: always()
         env:
           COVERALLS_REPO_TOKEN: ${{ secrets.COVERALLS_REPO_TOKEN }}
         run: |
           pnpm add coveralls --save-dev
-          cat ./coverage/lcov.info | pnpm exec coveralls
+          if [ -f ./coverage/lcov.info ]; then
+            cat ./coverage/lcov.info | pnpm exec coveralls
+          else
+            echo "lcov.info not found, skipping Coveralls upload."
+          fi

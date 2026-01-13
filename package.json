@@ -6,7 +6,8 @@
     "build": "next build",
     "dev": "next dev",
     "lint": "eslint .",
-    "start": "next start"
+    "start": "next start",
+    "test:ci": "pnpm vitest run backend/src/tests/*.ts --coverage"
   },
   "dependencies": {
     "@hookform/resolvers": "^3.10.0",
@@ -85,5 +86,13 @@
     "tw-animate-css": "1.3.3",
     "typescript": "^5",
     "vitest": "^4.0.17"
+  },
+  "vitest": {
+    "coverage": {
+      "lines": 90,
+      "functions": 90,
+      "branches": 90,
+      "statements": 90
+    }
   }
 }

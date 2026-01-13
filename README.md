@@ -1,6 +1,6 @@
 # Immune Balance
 
-[![Coverage Status](https://coveralls.io/repos/github/diogoangelim/immune-balance/badge.svg?branch=main&t={random})](https://coveralls.io/github/diogoangelim/immune-balance?branch=main)
+[![Coverage Status](https://coveralls.io/repos/github/diogoangelim/immune-balance/badge.svg?branch=main)](https://coveralls.io/github/diogoangelim/immune-balance?branch=main)
 [![Build Status](https://github.com/diogoangelim/immune-balance/actions/workflows/main.yml/badge.svg?t={random})](https://github.com/diogoangelim/immune-balance/actions)
 [![License: MIT](https://img.shields.io/github/license/diogoangelim/immune-balance?t={random})](https://github.com/diogoangelim/immune-balance/blob/main/LICENSE)
 

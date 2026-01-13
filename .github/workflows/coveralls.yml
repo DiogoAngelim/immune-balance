@@ -8,7 +8,7 @@ on:
 
 jobs:
   test-and-cover:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-22.04
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
@@ -16,14 +16,18 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: '18'
+      - name: Print Node.js version
+        run: node -v
       - name: Install pnpm
         run: npm install -g pnpm
       - name: Clear pnpm and npm cache
         run: pnpm store prune && npm cache clean --force
       - name: Install dependencies
         run: pnpm install
+      - name: Set NODE_OPTIONS
+        run: echo "NODE_OPTIONS=--experimental-modules" >> $GITHUB_ENV
       - name: Run tests and generate coverage
-        run: pnpm vitest run --coverage
+        run: npx vitest run --coverage
       - name: Upload coverage to Coveralls
         env:
           COVERALLS_REPO_TOKEN: ${{ secrets.COVERALLS_REPO_TOKEN }}

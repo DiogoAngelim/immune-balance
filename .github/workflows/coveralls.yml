@@ -1,3 +1,5 @@
+      - name: Show lcov.info content
+        run: cat backend/coverage/lcov.info || echo "lcov.info not found"
 name: Coveralls Coverage
 
 on:

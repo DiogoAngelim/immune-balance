@@ -1,0 +1,28 @@
+name: Coveralls Coverage
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+jobs:
+  test-and-cover:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '18'
+      - name: Install dependencies
+        run: pnpm install
+      - name: Run tests and generate coverage
+        run: pnpm vitest run --coverage
+      - name: Upload coverage to Coveralls
+        env:
+          COVERALLS_REPO_TOKEN: ${{ secrets.COVERALLS_REPO_TOKEN }}
+        run: |
+          pnpm add coveralls --save-dev
+          cat ./coverage/lcov.info | pnpm exec coveralls

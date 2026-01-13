@@ -1,0 +1,9 @@
+*.js
+*.cjs
+*.mjs
+*.json
+*.d.ts
+prisma.config.*
+drizzle.config.*
+prisma/
+migrations/

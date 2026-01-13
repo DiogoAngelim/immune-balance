@@ -1,0 +1,42 @@
+{
+  "name": "immune-balance-backend",
+  "version": "1.0.0",
+  "main": "src/index.ts",
+  "scripts": {
+    "dev": "ts-node-dev --respawn src/index.ts",
+    "build": "tsc",
+    "start": "node dist/index.js",
+    "lint": "eslint . --ext .ts",
+    "format": "prettier --write .",
+    "test": "vitest run src/tests/*.ts",
+    "coverage": "vitest run --coverage"
+  },
+  "dependencies": {
+    "@fastify/multipart": "^9.3.0",
+    "dotenv": "^17.2.3",
+    "drizzle-kit": "^0.31.8",
+    "drizzle-orm": "^0.45.1",
+    "fastify": "latest",
+    "fastify-multipart": "^5.4.0",
+    "openai": "latest",
+    "pdf-parse": "^2.4.5",
+    "pdfjs-dist": "4.2.67",
+    "pg": "^8.16.3"
+  },
+  "devDependencies": {
+    "@eslint/js": "^9.39.2",
+    "@types/node": "latest",
+    "@types/pg": "^8.16.0",
+    "@vitest/coverage-v8": "4.0.17",
+    "eslint": "latest",
+    "eslint-config-prettier": "latest",
+    "eslint-plugin-import": "latest",
+    "eslint-plugin-prettier": "latest",
+    "prettier": "latest",
+    "ts-node": "latest",
+    "ts-node-dev": "latest",
+    "typescript": "latest",
+    "typescript-eslint": "^8.53.0",
+    "vitest": "latest"
+  }
+}

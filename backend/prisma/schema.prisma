@@ -1,0 +1,17 @@
+// Prisma schema for immune-balance backend
+// Adjust models as needed for medical report data
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+}
+
+model MedicalReport {
+  id        String   @id @default(uuid())
+  content   String
+  parsed    Json
+  createdAt DateTime @default(now())
+}

@@ -1,8 +1,6 @@
 # Immune Balance
 
 [![Coverage Status](https://coveralls.io/repos/github/diogoangelim/immune-balance/badge.svg?branch=main&t=now)](https://coveralls.io/github/diogoangelim/immune-balance?branch=main)
-<!-- Added ?t=now to badge URL to prevent caching -->
-[![Build Status](https://github.com/diogoangelim/immune-balance/actions/workflows/main.yml/badge.svg?branch=main&t=now)](https://github.com/diogoangelim/immune-balance/actions)
 [![License: MIT](https://img.shields.io/github/license/diogoangelim/immune-balance?style=flat-square&t=now)](https://github.com/diogoangelim/immune-balance/blob/main/LICENSE)
 
 Immune Balance is a modern Next.js and TypeScript application for managing and analyzing medical reports, signals, and events. It features a robust backend powered by Drizzle ORM and PostgreSQL, and a clean, component-driven frontend.

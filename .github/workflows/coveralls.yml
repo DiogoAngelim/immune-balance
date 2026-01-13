@@ -39,4 +39,4 @@ jobs:
           COVERALLS_REPO_TOKEN: ${{ secrets.COVERALLS_REPO_TOKEN }}
         run: |
           pnpm add coveralls --save-dev
-          cat ./backend/coverage/lcov.info | pnpm exec coveralls || cat ./coverage/lcov.info | pnpm exec coveralls
+          cat ./coverage/lcov.info | pnpm exec coveralls

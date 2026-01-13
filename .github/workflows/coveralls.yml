@@ -24,6 +24,8 @@ jobs:
         run: pnpm install --no-frozen-lockfile
       - name: Print which node is used by Vitest
         run: which node && node -v
+      - name: Install backend dependencies
+        run: cd backend && pnpm install --no-frozen-lockfile
       - name: Run backend tests and generate coverage
         run: cd backend && NODE_OPTIONS=--experimental-modules pnpm exec vitest run --coverage
       - name: Find all lcov.info files

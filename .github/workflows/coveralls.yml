@@ -27,7 +27,9 @@ jobs:
       - name: Install backend dependencies
         run: cd backend && pnpm install --no-frozen-lockfile
       - name: Run backend tests and generate coverage
-        run: cd backend && pnpm exec vitest run --coverage
+        run: cd backend && pnpm exec vitest run --coverage --config vitest.config.ts
+      - name: List backend/coverage after tests
+        run: ls -l backend/coverage || echo "No coverage directory"
       - name: Find all lcov.info files
         run: find . -name lcov.info
       - name: Upload coverage to Coveralls

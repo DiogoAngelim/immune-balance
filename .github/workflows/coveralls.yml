@@ -1,5 +1,4 @@
-      - name: Show lcov.info content
-        run: cat backend/coverage/lcov.info || echo "lcov.info not found"
+
 name: Coveralls Coverage
 
 on:
@@ -34,6 +33,8 @@ jobs:
         run: ls -l backend/coverage || echo "No coverage directory"
       - name: Find all lcov.info files
         run: find . -name lcov.info
+      - name: Show lcov.info content
+        run: cat backend/coverage/lcov.info || echo "lcov.info not found"
       - name: Upload coverage to Coveralls
         if: always()
         env:

@@ -25,7 +25,7 @@ jobs:
       - name: Print which node is used by Vitest
         run: which node && node -v
       - name: Run tests and generate coverage
-        run: NODE_OPTIONS=--experimental-modules pnpm exec vitest run "**/*.{test,spec}.{ts,tsx}" --coverage
+        run: NODE_OPTIONS=--experimental-modules pnpm exec vitest run --coverage
       - name: Find all lcov.info files
         run: find . -name lcov.info
       - name: Upload coverage to Coveralls

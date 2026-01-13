@@ -32,6 +32,8 @@ jobs:
         run: which node && node -v
       - name: Run tests and generate coverage
         run: NODE_OPTIONS=--experimental-modules pnpm vitest run backend/src/tests/*.ts --coverage
+      - name: List coverage files
+        run: ls -l ./coverage || echo 'No coverage directory found'
       - name: Upload coverage to Coveralls
         env:
           COVERALLS_REPO_TOKEN: ${{ secrets.COVERALLS_REPO_TOKEN }}
